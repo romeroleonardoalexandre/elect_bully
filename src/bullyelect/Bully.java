@@ -32,7 +32,7 @@ public class Bully {
         System.out.println(formatter.format(new Date()) +": Eleição iniciada pelo processo " + solicitante.getID());
         if (ativa) {
             //dois processos de eleição não podem acontecer simultaneamente
-            System.out.println(formatter.format(new Date()) +": Eleição já em andamento...");
+            System.out.println(formatter.format(new Date()) +": Eleição já esta em andamento...");
         } else {            
             listaProcessos.sort(null);
             //Solicitar pra todos ativos maior que ele.
