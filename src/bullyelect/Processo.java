@@ -20,15 +20,17 @@ public class Processo implements Comparable<Processo> {
     private Timer timer;
     private Bully eleicao;
     private SimpleDateFormat formatter;
+    private Processo coodernador;
 
     public Processo(int id, Bully eleicao) {
         this.ID = id;
         ativo = true;
         this.eleicao = eleicao;
         //Se ele for o primeiro ele é o coordenador...
-        if (this.eleicao.getCoodernador() == null) {
+        if (eleicao.getCoodernador() == null) {
             this.eleicao.setCoordenador(this);
         }
+        //SetCoordenador(this.eleicao.getCoodernador());
         timer = new Timer();
         formatter = new SimpleDateFormat("dd/MM/YYYY HH:mm:ss");
     }
@@ -63,6 +65,10 @@ public class Processo implements Comparable<Processo> {
 
     public void inativa() {
         ativo = false;
+    }
+    
+    public void SetCoordenador(Processo coo){
+        coodernador = coo;
     }
 
     @Override
