@@ -33,7 +33,8 @@ public class Bully {
         if (ativa) {
             //dois processos de eleição não podem acontecer simultaneamente
             System.out.println(formatter.format(new Date()) +": Eleição já esta em andamento...");
-        } else {            
+        } else {   
+            ativa = true;
             listaProcessos.sort(null);
             //Solicitar pra todos ativos maior que ele.
             for (int i = listaProcessos.indexOf(solicitante); i < listaProcessos.size(); i++) {
@@ -41,7 +42,8 @@ public class Bully {
                     listaProcessos.get(i).elegerProcesso();
                 }
             }
-        }
+            ativa = false;
+        }        
     }       
 
     public boolean eleger(Processo candidato) {
@@ -67,6 +69,11 @@ public class Bully {
     }
     
     public void setCoordenador(Processo p){
+        for (Processo processo : listaProcessos) {
+            if (processo.getAtivo()){
+                processo.SetCoordenador(p);
+            }
+        }
         this.coodernador = p;
     }
 }

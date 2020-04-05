@@ -29,6 +29,8 @@ public class BullyElect {
     private static final int INATIVACOORDENADOR = 100;
     
     public static void main(String[] args) {
+        System.err.println("Sistemas Distribuídos - Bully");
+        System.err.println("Leonardo Pereira - Alexandre Romero");
         bully = new Bully();
         TIMER.schedule(new CriarProcesso(), 1);
         TIMER.schedule(new InativarProcesso(), INATIVAPROCESSO * 1000);
@@ -109,7 +111,7 @@ public class BullyElect {
             bully.getCoodernador().inativa();
             System.out.println(new SimpleDateFormat("dd/MM/YYYY HH:mm:ss").format(new Date())+": Coordenador " + bully.getCoodernador().getID() + " foi inativado!");
             TIMER.schedule(new InativarCoordenador(), INATIVACOORDENADOR * 1000);            
-        }
+        };
     }
     
 }
